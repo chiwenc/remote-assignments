@@ -9,17 +9,15 @@ function max(numbers) {
 } 
 
 function findPosition(numbers, target) {
-    var position = 0;
+    var position = -1;
     
     for (let i = 0; i < numbers.length; i++) {
         if (target == numbers[i]) {
             position = i;
             break;
-        } else {
-            position = -1;
-        }
     }
     return position;
+    }
 }
 
 
