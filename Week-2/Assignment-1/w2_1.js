@@ -7,16 +7,19 @@ function max(numbers) {
     }
     return max
 } 
+
 function findPosition(numbers, target) {
     var position = 0;
-    if (numbers.includes(target) == false) {
-        position = -1
-    } else {        
-        while (target != numbers[position]) {
-            position += 1;
+    
+    for (let i = 0; i < numbers.length; i++) {
+        if (target == numbers[i]) {
+            position = i;
+            break;
+        } else {
+            position = -1;
         }
-     }    
-    return position
+    }
+    return position;
 }
 
 
