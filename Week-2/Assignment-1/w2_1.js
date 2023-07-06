@@ -8,18 +8,14 @@ function max(numbers) {
     return max
 } 
 function findPosition(numbers, target) {
-    let position = 0;
+    var position = 0;
     if (numbers.includes(target) == false) {
         position = -1
-    } else {
-        for (i = 0; i < numbers.length; i++) {
-            if (target != numbers[i]) continue;
-            else {
-                position = i;
-                break;
-            }
+    } else {        
+        while (target != numbers[position]) {
+            position += 1;
         }
-    }    
+     }    
     return position
 }
 
