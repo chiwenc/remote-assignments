@@ -7,9 +7,7 @@ def twoSum(nums, target):
         if remaining in nums:
             position2 = bisect.bisect_left(nums, remaining)
             return [i, position2]
-        else:
-            continue
-    
+   
     return "Not Found"
 
 print(twoSum([2, 7, 11, 15], 9))
