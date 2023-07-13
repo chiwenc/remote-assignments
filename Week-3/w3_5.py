@@ -5,7 +5,7 @@ def twoSum(nums, target):
     for i in range(len(nums)):
         remaining = target - nums[i]
         if remaining in nums:
-            position2 = bisect.bisect_left(nums, target)
+            position2 = bisect.bisect_left(nums, remaining)
             return [i, position2]
         else:
             continue
