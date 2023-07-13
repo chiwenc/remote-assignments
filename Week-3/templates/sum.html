@@ -1,26 +1,27 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <form action = "{{ url_for('sum') }}", method = "get">
+    <form action = "#", method = "get">
         <label>Enter a number</label>
         <input id = "user_input" type = 'text' name = 'name'/>
-        <input type = 'submit' value = 'Enter'/>
+        <button id = "enterBTN">Enter</button>
     </form>
 
     <script>
-        function loadDoc() {
-        xhttp = new XMLHttpRequest();
-        let number = document.getElementById("user_input").value
         
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(xhttp.responseText);
-            } else {
-                alert("Invalid input.")
-            }
-        };
-        xhttp.open("GET", `http://localhost:3000/data?number=${number}`, true);
-        xhttp.send();
+        document.querySelector("#enterBTN").addEventListener("click",make_request)
+        
+        function make_request() {
+            xhttp = new XMLHttpRequest();
+            let number = document.querySelector("#user_input").value
+            
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(xhttp.responseText);
+                }
+            };
+            xhttp.open("GET", `http://localhost:3000/data?number=${number}`, true);
+            xhttp.send();
         }
     </script>
 {% endblock %}

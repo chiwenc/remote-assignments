@@ -17,8 +17,8 @@ def value(number=0):
         return "Lack of Parameter"
     else: 
         try: 
-            sum = (1 + number) * number / 2
-            return f"total: {sum}"
+            sum = (1 + int(number)) * int(number) / 2
+            return f"total: {int(sum)}"
         except:
             return "Wrong Parameter"
 
