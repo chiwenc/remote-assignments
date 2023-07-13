@@ -1,21 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Week3</title>
-    </head>
+{% extends "base.html" %}
 
-    <body>
-        <script>
-            function loadDoc() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("demo").innerHTML = this.responseText;
-              }
-            };
-            xhttp.open("GET", "http://localhost:3000/data?number=10", true);
-            xhttp.send();
+{% block body %}
+    <form action = "{{ url_for('sum') }}", method = "get">
+        <label>Enter a number</label>
+        <input id = "user_input" type = 'text' name = 'name'/>
+        <input type = 'submit' value = 'Enter'/>
+    </form>
+
+    <script>
+        function loadDoc() {
+        xhttp = new XMLHttpRequest();
+        let number = document.getElementById("user_input").value
+        
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(xhttp.responseText);
+            } else {
+                alert("Invalid input.")
             }
-        </script>
-    </body>
-</html>
+        };
+        xhttp.open("GET", `http://localhost:3000/data?number=${number}`, true);
+        xhttp.send();
+        }
+    </script>
+{% endblock %}

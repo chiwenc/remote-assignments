@@ -3,10 +3,12 @@ from flask import (Flask, render_template, request,
 
 app = Flask(__name__)
 
+# Assignment-1
 @app.route("/")
 def index():
     return render_template("index.html")
 
+# Assignment-2
 @app.route("/data")
 def value(number=0):
     number = request.args.get("number")
@@ -15,13 +17,17 @@ def value(number=0):
         return "Lack of Parameter"
     else: 
         try: 
-            sum = 0
-            for i in range(1,int(number)+1):
-                sum += i
+            sum = (1 + number) * number / 2
             return f"total: {sum}"
         except:
             return "Wrong Parameter"
 
+# Assignment-3
+@app.route("/sum.html")
+def sum():
+    return render_template("sum.html")
+
+# Assignment-4
 @app.route("/myName", methods = ["GET","POST"])
 def enterpage():
     user_data = request.cookies.get("user_name")
