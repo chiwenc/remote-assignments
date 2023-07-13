@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form action = "{{ url_for('trackname') }}", method = "get">
+    <label>Enter your name</label>
+    <input type = 'text' name = 'name'/>
+    <input type = 'submit' value = 'Enter'/>
+</form>
+{% endblock %}
