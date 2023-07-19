@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+
+{% block title %}Sign-in{% endblock %}
+
+{% block body %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.username.label }} 
+        {{ form.username(class_="form-control form-control-lg") }}
+    </div>
+    <div class="form-group">
+        {{form.email.label}} 
+        {{form.email(class_="form-control form-control-lg") }}
+    </div>
+    <div class="form-group">
+        {{ form.password.label }} 
+        {{ form.password(class_="form-control form-control-lg") }}
+    </div>
+        {{form.submit(class_="btn btn-primary btn-lg")}}
+</form>
+{% with message = get_flashed_messages() %}
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+{% endwith %}
+{% endblock %}
