@@ -11,8 +11,13 @@ class Worker(threading.Thread):
     def __init__(self, worker_num):
         threading.Thread.__init__(self)
         self.worker_num = worker_num
+    
     def run(self):
-    # Your code here
+        while not job_queue.empty():
+            n = job_queue.get()
+            self.do_job(n)
+   
+    
     def do_job(self, index):
         # Simulate a job (you can image it as doing something which need to take 1 second)
         print(f"worker {self.worker_num} start job {index}")
